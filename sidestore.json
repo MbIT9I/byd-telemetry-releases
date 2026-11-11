@@ -12,13 +12,13 @@
       "tintColor": "2F6BFF",
       "versions": [
         {
-          "version": "0.2.1",
-          "buildVersion": "47",
-          "date": "2026-11-11T19:53:03Z",
-          "localizedDescription": "### Fixed\n- **The head unit never updated itself while parked** — the update waited for the car to be confirmed standing still,\n  but a sleeping car logs no speed, which counts as moving, so v0.2.0 stayed «встановлю, коли авто стоятиме» all\n  evening. It now also installs when the car is off (power level OFF, read live as 0 while asleep on 2026-11-11).\n- **The head unit's self-update could never install** — `pm install` got the APK's path in the app's `Android/data`,\n  which system_server can't open on Android 12 («Failed to parse APK file»); it now installs a copy from\n  `/data/local/tmp`, as `adb install` does. A failed install now shows its reason in «Оновлення» instead of «Встановлюю…»\n  forever, and waits 6 h before trying again instead of downloading the same APK every 10 min.\n- **v0.2.0's APKs were signed with the wrong key** — AGP on the runner ignored `~/.android/debug.keystore` and made a\n  key of its own, so the car refused v0.2.0 (`INSTALL_FAILED_UPDATE_INCOMPATIBLE`). Both builds now take the key from\n  `DEBUG_KEYSTORE`, and the workflow fails if an APK isn't signed with it. v0.2.0 can't be installed over the car's\n  build; use the next release.\n",
-          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.2.1/BydCompanion-0.2.1.ipa",
-          "size": 13859823,
-          "sha256": "c231c2b55963e02f60908ca8d85da46789dc390191ee3ba5e099878abc946460",
+          "version": "0.2.2",
+          "buildVersion": "52",
+          "date": "2026-11-11T21:23:14Z",
+          "localizedDescription": "### Fixed\n- **Release workflow: the card got no release when it hadn't changed** — v0.2.1's card step found nothing to commit,\n  so it made no tag and failed (the apps were published). It now tags the card repo either way.\n",
+          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.2.2/BydCompanion-0.2.2.ipa",
+          "size": 13859873,
+          "sha256": "9bfe8988a193f4bab4fd10bbe3e1c8fe1c9516f57345a385b78911faea514259",
           "minOSVersion": "16.0"
         }
       ],
