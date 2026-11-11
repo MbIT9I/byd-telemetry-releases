@@ -1,0 +1,31 @@
+{
+  "name": "BYD Sea Lion 06",
+  "identifier": "com.example.bydcompanion.source",
+  "sourceURL": "https://raw.githubusercontent.com/MbIT9I/byd-telemetry-releases/main/sidestore.json",
+  "apps": [
+    {
+      "name": "BYD Sea Lion 06",
+      "bundleIdentifier": "com.example.bydcompanion",
+      "developerName": "BYD Telemetry",
+      "localizedDescription": "Компаньйон для BYD Sea Lion 06: стан авто, клімат, сидіння, камери.",
+      "iconURL": "https://raw.githubusercontent.com/MbIT9I/byd-telemetry-releases/main/icon.png",
+      "tintColor": "2F6BFF",
+      "versions": [
+        {
+          "version": "0.2.0",
+          "buildVersion": "44",
+          "date": "2026-11-11T18:42:44Z",
+          "localizedDescription": "### Added\n- **Releases and auto-update** — one version `vX.Y.Z` for the head unit, the companion apps and the card (the\n  companion now takes its version and build number from git like the head unit: `AppVersion` in core). Every merge\n  to main with a `feat`/`fix`/`perf` commit releases it: CHANGELOG's [Unreleased] becomes the version's section, and\n  the builds go to the public repos `MbIT9I/byd-telemetry-releases` (APKs, unsigned IPA, `update.json`, SideStore\n  source) and `MbIT9I/byd-sealion-card` (HACS). The head unit checks every 6 h and installs a newer build over\n  Tier F ADB while the car stands still (Налаштування → Фонова робота → Оновлення, with a switch to keep your own\n  builds); the Android companion shows the version and an «Оновити» button in «Підключення»; the iPhone updates\n  through SideStore; the card through HACS. Not yet run end to end — see `docs/features/auto-update.md`.\n- **DVR tab, a taller 360° and full screen on the Камери screen** (owner's layout, Figma 2026-11-11) — **360° | DVR | DMS**.\n  DVR is the windshield recorder camera: the head unit's helper reads it from BYD's BMM camera server\n  (`android.hardware.AVMCamera.open(11001)` from `/system/framework/bmmcamera.jar`, `camera/BmmCamera.kt`), which pulls\n  it as RTSP from the driving controller, and streams it 1920×1080 like the others (`mode\":\"dvr\"`, go2rtc stream\n  `byd_dvr`). The controller runs only while the car is on (a wake, the AVM heartbeat and EV Pro's HV request don't power\n  it), so on a parked car the helper answers «Реєстратор працює лише з увімкненим авто» without waking anything and the\n  apps show their «DVR · авто вимкнене» state. The 360° is now rendered 2:3 portrait (`864x1296`, 90 px/m; one camera at\n  110° wide) and fills the screen's height; the chips lie over the video. A double tap on the video opens it full screen\n  (360° upright, DVR/DMS turned a quarter for a phone held sideways; ✕ or a double tap closes; the card uses the browser's\n  full screen). Aspect, rotation and texts come from core `Cameras.kt`. DVR frames from the shell uid checked on the car\n  (recorder unaffected); the phones checked on the iOS simulator against a stand-in car and test HLS streams; the new\n  helper is not yet run on the car. See `docs/features/cameras-dvr-and-adas.md`.\n- **Status row above the car on Головна (phones and the card)** — four chips, centred and evenly spaced (Figma\n  `01 · Головна`, components `StatusChip/…`): padlock, charge bolt + plug, charge/discharge power, speed from the CAN\n  bus. Bolt green while `bms_state` is 1; plug green when `charge_gun_state_raw` is 2, red when the flap is open and\n  the gun out, grey otherwise; power is the signed pack power (−voltage × current, `+7,4 кВт` charging, `−0,3 кВт`\n  discharging, idle under 0,15 kW shows `0 кВт`), not `charge_power_kw`, which reads garbage while idle. Logic in core\n  `StatusRow.kt`, so the apps and the card agree. The head unit now publishes what the row needs, all read over Tier F\n  and live-checked on the car on 2026-11-11 (parked, on an AC charge): `can_speed_kmh` (HA «CAN Speed»; the MCU speed from\n  the `com.byd.gpsinfo` log, or from the speed device when the log has none; `speed_kmh` stays the GPS speed), `doors_locked`\n  (HA «Doors Locked»; 1 when all four OTA-device lock states read locked, 0 when any reads unlocked) and `charge_flap_open`\n  (HA «Charge Flap Open»; from `getChargingCapState`, 1 while the lid is open). The plug is green for any gun state 2..5\n  (AC, DC, AC+DC, V2L), not only 2. Still not seen: the unlocked reading, the lid-closed reading and the speed while\n  driving.\n  See `docs/features/home-status-row.md`.\n- **360° bird's-eye rendered by the head unit** — the Камери screen's 360° is now the view from above with the car\n  in the middle (Figma «06 · Камери»), stitched by our helper from the four fisheyes with BYD's own calibration for\n  this model (read from `AutoVideo.apk`) and our measured pose of the side cameras with the mirrors folded (a l",
+          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.2.0/BydCompanion-0.2.0.ipa",
+          "size": 13859804,
+          "sha256": "9209338d97bb50a81271c124d6b5ffaf9bcb64b0d715daaf83853aa23a90cf0e",
+          "minOSVersion": "16.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      }
+    }
+  ]
+}
