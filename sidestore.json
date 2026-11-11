@@ -12,13 +12,13 @@
       "tintColor": "2F6BFF",
       "versions": [
         {
-          "version": "0.2.2",
-          "buildVersion": "52",
-          "date": "2026-11-11T21:23:14Z",
-          "localizedDescription": "### Fixed\n- **Release workflow: the card got no release when it hadn't changed** — v0.2.1's card step found nothing to commit,\n  so it made no tag and failed (the apps were published). It now tags the card repo either way.\n",
-          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.2.2/BydCompanion-0.2.2.ipa",
-          "size": 13859873,
-          "sha256": "9bfe8988a193f4bab4fd10bbe3e1c8fe1c9516f57345a385b78911faea514259",
+          "version": "0.3.0",
+          "buildVersion": "56",
+          "date": "2026-11-11T21:57:36Z",
+          "localizedDescription": "### Added\n- **Wi-Fi and LTE in the companion header** — the head unit publishes `wifi_connected`/`wifi_level` (0..3) and\n  `lte_connected`/`lte_level` (0..4), discovered in HA as «WiFi Connected», «WiFi Signal Level», «LTE Connected»,\n  «LTE Signal Level». The phone apps and the HA card show them after «Онлайн · оновлено …» as in Figma: Wi-Fi arcs and\n  LTE bars by level; no Wi-Fi = grey Wi-Fi with «!», LTE not working = red crossed circle; hidden while the car is\n  offline or the data is stale.\n\n### Fixed\n- **«Припарковано … · заряд без змін» while the car charged** — the keep-alive helper re-read SOC only in a periodic\n  wake window, and on Wi-Fi those are skipped, so `park_soc_drop` stayed 0 (HA, 2026-11-11: SOC 79 → 87 % while\n  parked, drop 0 all day). The helper now refreshes SOC on every tick while parked, and the app and the HA card show\n  a gain as «+8% заряду» instead of «заряд без змін».\n",
+          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.3.0/BydCompanion-0.3.0.ipa",
+          "size": 13882580,
+          "sha256": "c964669c11c5c73f3fbb771138dac657c6c980b3a69eaea2176a69c3ea89f88d",
           "minOSVersion": "16.0"
         }
       ],
