@@ -12,13 +12,13 @@
       "tintColor": "2F6BFF",
       "versions": [
         {
-          "version": "0.4.0",
-          "buildVersion": "62",
-          "date": "2026-11-12T07:51:57Z",
-          "localizedDescription": "### Added\n- **Automation trigger «Увімкнення авто»** — fires once each time the car is switched on after the head unit slept\n  (`sys.quickboot.enable` 1 → 0, then the bodywork power level reads ACC/ON), whether or not the app's process survived\n  the sleep. «Запуск сервісу» did not fire on a normal morning start (2026-11-12: the car woke at 08:15 at 6 °C in the\n  cabin, the warm-up rule never ran), because the service it watches was still alive from the night. Not yet seen\n  firing on a real power-on — see `docs/features/automations.md`.\n",
-          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.4.0/BydCompanion-0.4.0.ipa",
-          "size": 13882210,
-          "sha256": "ab1663f4c59506785906c6cafdc8949f2352f6d91af3cf2144a9ce977c4b6624",
+          "version": "0.5.0",
+          "buildVersion": "69",
+          "date": "2026-11-12T16:04:28Z",
+          "localizedDescription": "### Changed\n- **Climate, seats and cameras work while driving.** Every climate (`climate/set`, `climate/airflow/set`), seat\n  (`seats/set`) and camera (`cameras/stream/set`) request from the phones or the HA card used to be refused unless the\n  car stood still («Авто рухається» for the cameras, silently for the rest). Only the windows (and the sunshade and the\n  in-car-confirmed shell channel) still wait for `StationaryGate`. The phones' and the card's hint now reads «Авто змінить\n  режим, лише якщо увімкнене.» A side effect: with the gate gone, these commands also reach the car while it sleeps\n  (the gate used to refuse them then, for lack of fresh speed samples); what the car does with them then is not yet checked.\n",
+          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.5.0/BydCompanion-0.5.0.ipa",
+          "size": 13919120,
+          "sha256": "5eb28c41bcb88b69718c7489db60f55e37c40cc5253477d3b3e413bebd80c608",
           "minOSVersion": "16.0"
         }
       ],
