@@ -12,13 +12,13 @@
       "tintColor": "2F6BFF",
       "versions": [
         {
-          "version": "0.3.0",
-          "buildVersion": "56",
-          "date": "2026-11-11T21:57:36Z",
-          "localizedDescription": "### Added\n- **Wi-Fi and LTE in the companion header** — the head unit publishes `wifi_connected`/`wifi_level` (0..3) and\n  `lte_connected`/`lte_level` (0..4), discovered in HA as «WiFi Connected», «WiFi Signal Level», «LTE Connected»,\n  «LTE Signal Level». The phone apps and the HA card show them after «Онлайн · оновлено …» as in Figma: Wi-Fi arcs and\n  LTE bars by level; no Wi-Fi = grey Wi-Fi with «!», LTE not working = red crossed circle; hidden while the car is\n  offline or the data is stale.\n\n### Fixed\n- **«Припарковано … · заряд без змін» while the car charged** — the keep-alive helper re-read SOC only in a periodic\n  wake window, and on Wi-Fi those are skipped, so `park_soc_drop` stayed 0 (HA, 2026-11-11: SOC 79 → 87 % while\n  parked, drop 0 all day). The helper now refreshes SOC on every tick while parked, and the app and the HA card show\n  a gain as «+8% заряду» instead of «заряд без змін».\n",
-          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.3.0/BydCompanion-0.3.0.ipa",
-          "size": 13882580,
-          "sha256": "c964669c11c5c73f3fbb771138dac657c6c980b3a69eaea2176a69c3ea89f88d",
+          "version": "0.4.0",
+          "buildVersion": "62",
+          "date": "2026-11-12T07:51:57Z",
+          "localizedDescription": "### Added\n- **Automation trigger «Увімкнення авто»** — fires once each time the car is switched on after the head unit slept\n  (`sys.quickboot.enable` 1 → 0, then the bodywork power level reads ACC/ON), whether or not the app's process survived\n  the sleep. «Запуск сервісу» did not fire on a normal morning start (2026-11-12: the car woke at 08:15 at 6 °C in the\n  cabin, the warm-up rule never ran), because the service it watches was still alive from the night. Not yet seen\n  firing on a real power-on — see `docs/features/automations.md`.\n",
+          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.4.0/BydCompanion-0.4.0.ipa",
+          "size": 13882210,
+          "sha256": "ab1663f4c59506785906c6cafdc8949f2352f6d91af3cf2144a9ce977c4b6624",
           "minOSVersion": "16.0"
         }
       ],
