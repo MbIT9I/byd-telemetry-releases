@@ -12,13 +12,13 @@
       "tintColor": "2F6BFF",
       "versions": [
         {
-          "version": "0.8.1",
-          "buildVersion": "126",
-          "date": "2026-11-13T19:02:19Z",
-          "localizedDescription": "### Added\n- **«Фічі в роботі» dashboard of open OpenSpec changes**, refreshed after every `/developer` ship and daily from `main`\n  (`features-dashboard` skill, `scripts/features-dashboard/`).\n\n### Fixed\n- **Head-unit Maestro smoke flow** asserts the sidebar instead of «BYD-Telemetry», which the header replaces with the\n  profile name; it runs on the `companion_test` emulator in landscape.\n- **«Припарковано …» and the parked SOC drain no longer restart from zero** when the app is updated or the keep-alive\n  helper is relaunched while the car stands. The helper reads its park record back on start and keeps counting from the\n  stored park time and SOC baseline (`openspec/changes/park-counter-resets-while-charging/`).\n",
-          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.8.1/BydCompanion-0.8.1.ipa",
-          "size": 14026432,
-          "sha256": "dd7e2f915866e53316d5face42798e8e53c8fa7f77af64aefe00d4a6b443930e",
+          "version": "0.8.2",
+          "buildVersion": "129",
+          "date": "2026-11-13T20:13:44Z",
+          "localizedDescription": "### Fixed\n- **Cameras: no false «Камера не запустилась за 40 с».** A viewer that closed the stream, or whose 360° was taken over\n  by DVR from another device, used to get that error 40 s later. Its wait now ends silently\n  (`openspec/changes/cameras-360-and-quad-view/`). On LTE a sleeping car still answers only in its periodic wake, every\n  ~5 min. That is a known limit, and the cameras do not depend on Wi-Fi.\n",
+          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.8.2/BydCompanion-0.8.2.ipa",
+          "size": 14026223,
+          "sha256": "69fd632e35e3aebbd8b2951cb60560e924a7c25a3154ecc1a6e56dcddadf9351",
           "minOSVersion": "16.0"
         }
       ],
