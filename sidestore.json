@@ -12,13 +12,13 @@
       "tintColor": "2F6BFF",
       "versions": [
         {
-          "version": "0.12.1",
-          "buildVersion": "276",
-          "date": "2026-11-20T20:52:09Z",
-          "localizedDescription": "### Added\n- **BYD's «Disable self-start» is detected.** On firmware V1.4.0 BYD refuses every start of the app it did not make\n  itself while the app is in its «Disable self-start» list, and a clean install puts it there: after a real reboot\n  telemetry stayed down until someone opened the app (16 h on 2026-11-20). Налаштування → Фонова робота → «Запускати у\n  фоні» now says whether BYD blocks the app and has a button that opens BYD's list.\n- **Mobile data is moved back to the working SIM slot.** Both SIM slots show the same ICCID; when the built-in module\n  (slot 1, no service) gets the subscription at boot, the app moves it back to slot 0 over ADB.\n\n### Fixed\n- The window, climate and seat helpers no longer ask `pm path` over ADB for the app's own apk, and stop logging an error\n  every 8 s while ADB is down.\n",
-          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.12.1/BydCompanion-0.12.1.ipa",
-          "size": 14421416,
-          "sha256": "ca5e40ed0333978335f9612e6b1417f91c291b41e971e1eac0ed9cc4e7039051",
+          "version": "0.13.0",
+          "buildVersion": "294",
+          "date": "2026-11-20T21:17:05Z",
+          "localizedDescription": "### Added\n- **Release builds are signed with the release key and are not debuggable.** The head unit and the Android companion are\n  built as release variants; `scripts/release/check_release_apk.py` fails the release unless each APK is signed with the\n  pinned key and is not debuggable. The release job needs the four `RELEASE_*` secrets.\n- **The head unit and the Android companion wipe their keys when the build changes.** A changed signing certificate or\n  debuggable flag wipes the trusted keys (the settings stay). «Довірені пристрої» and «Підключення» say «Ключі видалено…»\n  and the phones show «Ключ авто змінився…»; pairing again pins the new key. The HA card gets the same re-pair hint.\n- **Settings export and import («Сховище → Перенесення налаштувань»).** The settings and the automations go to\n  `BYD-Telemetry/settings.json` on a USB stick or flash card (the volume is picked when several are mounted). Passwords\n  only with «Разом з паролями», which writes them in plain text. Import changes only the listed settings and reports\n  what was skipped.\n- **Updates from another signing key are not installed.** `update.json` carries `signer`; a newer build signed with\n  another key shows «підписана іншим ключем, потрібне перевстановлення вручну» instead of installing, and the\n  companion says the same. Reinstall is manual.\n",
+          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.13.0/BydCompanion-0.13.0.ipa",
+          "size": 14439619,
+          "sha256": "2b7f3eb2a61348eb6b0110ead94435f260b32dcd35a34e0877b5a25352625efc",
           "minOSVersion": "16.0"
         }
       ],
