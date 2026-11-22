@@ -12,13 +12,13 @@
       "tintColor": "2F6BFF",
       "versions": [
         {
-          "version": "0.14.0",
-          "buildVersion": "310",
-          "date": "2026-11-22T09:17:46Z",
-          "localizedDescription": "### Added\n- **BYD's dialogs after a power-on are answered.** Two switches in Налаштування → Фонова робота (off by default):\n  «Дозволяти бездротову налагодку автоматично» presses «Allow» with «Always allow» in the wireless-debugging dialog, so\n  ADB comes back without anyone at the screen; «Закривати попередження BYD про неофіційний експорт» closes BYD's export\n  warning. One accessibility service the app enables itself; the «Allow USB debugging?» dialog is never touched.\n\n### Fixed\n- Wi-Fi no longer drops when the car sleeps away from a charger: with «Тримати звʼязок під час засинання» on, the app\n  sets BYD's own keep-Wi-Fi switch (`byd_off_wifi_switch`), so ignition off leaves Wi-Fi on without ADB.\n- The SIM slot repair waits until ADB has settled after a power-on (no wireless-debugging dialog pending, adbd not\n  restarting) instead of starting at once, and powers slot 0 back on straight away if a step is lost.\n- **The SIM slot repair no longer leaves mobile data off.** Its three steps ran in one shell with 5 s pauses, longer\n  than the embedded ADB client's 5 s read timeout, so on the car (2026-11-20 23:43) it powered both SIMs down and never\n  powered slot 0 back on. The steps now run as separate commands, and a check that finds both slots off with no\n  subscription powers slot 0 on.\n",
-          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.14.0/BydCompanion-0.14.0.ipa",
-          "size": 14439608,
-          "sha256": "938b9c42274f0c95b250ab9d218b6beed677a96cf9d88246afaa2dce99d8602e",
+          "version": "0.14.1",
+          "buildVersion": "313",
+          "date": "2026-11-22T09:31:47Z",
+          "localizedDescription": "### Fixed\n- The dialogs service («Дозволяти бездротову налагодку автоматично», «Закривати попередження BYD…») stopped working\n  after the first ignition off: BYD's quickboot kills the app and Android then keeps the service as crashed. The app\n  now re-enables it as soon as it starts again, and the service closes a warning that is already on screen.\n",
+          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.14.1/BydCompanion-0.14.1.ipa",
+          "size": 14441532,
+          "sha256": "e18fe2e1c3551fd95c2931b8fee14a341152dcff164d776207bb9e66564b61d9",
           "minOSVersion": "16.0"
         }
       ],
