@@ -12,13 +12,13 @@
       "tintColor": "2F6BFF",
       "versions": [
         {
-          "version": "0.14.1",
-          "buildVersion": "313",
-          "date": "2026-11-22T09:31:47Z",
-          "localizedDescription": "### Fixed\n- The dialogs service («Дозволяти бездротову налагодку автоматично», «Закривати попередження BYD…») stopped working\n  after the first ignition off: BYD's quickboot kills the app and Android then keeps the service as crashed. The app\n  now re-enables it as soon as it starts again, and the service closes a warning that is already on screen.\n",
-          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.14.1/BydCompanion-0.14.1.ipa",
-          "size": 14441532,
-          "sha256": "e18fe2e1c3551fd95c2931b8fee14a341152dcff164d776207bb9e66564b61d9",
+          "version": "0.14.2",
+          "buildVersion": "317",
+          "date": "2026-11-22T09:45:08Z",
+          "localizedDescription": "### Fixed\n- The SIM slot repair now counts ADB as settled only after the app itself has seen port 5555 open for 90 s; a\n  service restart during a restore had left an old «OK» behind and the repair started too early.\n",
+          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.14.2/BydCompanion-0.14.2.ipa",
+          "size": 14441546,
+          "sha256": "77aff498ea4d5829b4f3a0384ee9c009d9dc3de32b7a060b79925d7ea70a66cd",
           "minOSVersion": "16.0"
         }
       ],
