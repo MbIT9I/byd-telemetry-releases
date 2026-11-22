@@ -12,13 +12,13 @@
       "tintColor": "2F6BFF",
       "versions": [
         {
-          "version": "0.13.0",
-          "buildVersion": "294",
-          "date": "2026-11-20T21:17:05Z",
-          "localizedDescription": "### Added\n- **Release builds are signed with the release key and are not debuggable.** The head unit and the Android companion are\n  built as release variants; `scripts/release/check_release_apk.py` fails the release unless each APK is signed with the\n  pinned key and is not debuggable. The release job needs the four `RELEASE_*` secrets.\n- **The head unit and the Android companion wipe their keys when the build changes.** A changed signing certificate or\n  debuggable flag wipes the trusted keys (the settings stay). «Довірені пристрої» and «Підключення» say «Ключі видалено…»\n  and the phones show «Ключ авто змінився…»; pairing again pins the new key. The HA card gets the same re-pair hint.\n- **Settings export and import («Сховище → Перенесення налаштувань»).** The settings and the automations go to\n  `BYD-Telemetry/settings.json` on a USB stick or flash card (the volume is picked when several are mounted). Passwords\n  only with «Разом з паролями», which writes them in plain text. Import changes only the listed settings and reports\n  what was skipped.\n- **Updates from another signing key are not installed.** `update.json` carries `signer`; a newer build signed with\n  another key shows «підписана іншим ключем, потрібне перевстановлення вручну» instead of installing, and the\n  companion says the same. Reinstall is manual.\n",
-          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.13.0/BydCompanion-0.13.0.ipa",
-          "size": 14439619,
-          "sha256": "2b7f3eb2a61348eb6b0110ead94435f260b32dcd35a34e0877b5a25352625efc",
+          "version": "0.14.0",
+          "buildVersion": "310",
+          "date": "2026-11-22T09:17:46Z",
+          "localizedDescription": "### Added\n- **BYD's dialogs after a power-on are answered.** Two switches in Налаштування → Фонова робота (off by default):\n  «Дозволяти бездротову налагодку автоматично» presses «Allow» with «Always allow» in the wireless-debugging dialog, so\n  ADB comes back without anyone at the screen; «Закривати попередження BYD про неофіційний експорт» closes BYD's export\n  warning. One accessibility service the app enables itself; the «Allow USB debugging?» dialog is never touched.\n\n### Fixed\n- Wi-Fi no longer drops when the car sleeps away from a charger: with «Тримати звʼязок під час засинання» on, the app\n  sets BYD's own keep-Wi-Fi switch (`byd_off_wifi_switch`), so ignition off leaves Wi-Fi on without ADB.\n- The SIM slot repair waits until ADB has settled after a power-on (no wireless-debugging dialog pending, adbd not\n  restarting) instead of starting at once, and powers slot 0 back on straight away if a step is lost.\n- **The SIM slot repair no longer leaves mobile data off.** Its three steps ran in one shell with 5 s pauses, longer\n  than the embedded ADB client's 5 s read timeout, so on the car (2026-11-20 23:43) it powered both SIMs down and never\n  powered slot 0 back on. The steps now run as separate commands, and a check that finds both slots off with no\n  subscription powers slot 0 on.\n",
+          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.14.0/BydCompanion-0.14.0.ipa",
+          "size": 14439608,
+          "sha256": "938b9c42274f0c95b250ab9d218b6beed677a96cf9d88246afaa2dce99d8602e",
           "minOSVersion": "16.0"
         }
       ],
