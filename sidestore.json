@@ -12,13 +12,13 @@
       "tintColor": "2F6BFF",
       "versions": [
         {
-          "version": "0.14.2",
-          "buildVersion": "317",
-          "date": "2026-11-22T09:45:08Z",
-          "localizedDescription": "### Fixed\n- The SIM slot repair now counts ADB as settled only after the app itself has seen port 5555 open for 90 s; a\n  service restart during a restore had left an old «OK» behind and the repair started too early.\n",
-          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.14.2/BydCompanion-0.14.2.ipa",
-          "size": 14441546,
-          "sha256": "77aff498ea4d5829b4f3a0384ee9c009d9dc3de32b7a060b79925d7ea70a66cd",
+          "version": "0.15.0",
+          "buildVersion": "328",
+          "date": "2026-11-22T15:39:28Z",
+          "localizedDescription": "### Changed\n- **Releases carry the key rotation from the debug key.** The release signs with the release key and its signing lineage\n  (the debug key, then the release key), so 0.12.x installs 0.13.1 in place: no uninstall, no re-pairing, the data kept.\n  Phones still on the old certificate are no longer told to reinstall. The release job checks the lineage before it\n  publishes.\n\n### Fixed\n- Window and door commands are no longer refused «не вдалося перевірити, що авто стоїть» when the car's log writes the\n  speed with a decimal comma (`carSpeed:,0`); the stationary gate reads both separators.\n- The iPhone's QR scanner shows the camera picture instead of a black area; the code is read as before.\n",
+          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.15.0/BydCompanion-0.15.0.ipa",
+          "size": 14446563,
+          "sha256": "c3ffa264a0cd0e625672a87ed93e4f27b6df3352c97e7ff949ff633b8d23de4b",
           "minOSVersion": "16.0"
         }
       ],
