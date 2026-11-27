@@ -12,13 +12,13 @@
       "tintColor": "2F6BFF",
       "versions": [
         {
-          "version": "0.16.0",
-          "buildVersion": "364",
-          "date": "2026-11-25T17:10:42Z",
-          "localizedDescription": "### Added\n- **BYD cloud login over your own WireGuard tunnel while parked** («Фонова робота → Тримати хмару BYD на стоянці»). The\n  head unit brings the tunnel up only while parked on a Wi-Fi network from the list you enter, switches the cellular radio\n  off for the login, and restores it at ignition on or when the Wi-Fi is lost. The tunnel fields and the list stay on the\n  head unit. The state (`cloud_vpn_state`, `cloud_vpn_error`, `cloud_vpn_radio_off`) goes to MQTT and four Home Assistant\n  sensors; the companion app shows it read-only. Another VPN app taking the slot shows «Інший VPN-застосунок забрав тунель».\n  Car checks are still open (`openspec/changes/byd-cloud-vpn/`).\n",
-          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.16.0/BydCompanion-0.16.0.ipa",
-          "size": 14459772,
-          "sha256": "9cfb80c645a7fc9733f9489dbf3294e51b5032ece049294982cd89d26da3c079",
+          "version": "0.16.1",
+          "buildVersion": "385",
+          "date": "2026-11-27T20:33:15Z",
+          "localizedDescription": "No notable changes.\n",
+          "downloadURL": "https://github.com/MbIT9I/byd-telemetry-releases/releases/download/v0.16.1/BydCompanion-0.16.1.ipa",
+          "size": 14459776,
+          "sha256": "1c4d70b1367d26e04659d65f69b0a7eef1a897db43c978f9dcf7a69a4faa77ab",
           "minOSVersion": "16.0"
         }
       ],
